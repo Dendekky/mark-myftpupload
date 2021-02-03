@@ -7,11 +7,7 @@ html, body {
 }
 
 .site-container {
-    // width: 100vh;
-    // height: 100vh;
-    // overflow-x: hidden;
     .footer {
-        // width: 100%;
         background: #f4f4f4;
         padding: 24px;
     }
@@ -26,6 +22,17 @@ html, body {
         justify-content: center;
         span {
             padding-bottom: 10px
+        }
+    }
+    .footer-pad {
+        padding: 24px;
+        font-size: 13px;
+        .link-items {
+            color: #696969;
+            cursor: pointer;
+            &:hover{
+                color: #86868b;
+            };
         }
     }
 }
@@ -51,7 +58,40 @@ html, body {
 }
 
 .footer-form-input {
-    min-width: 180px;
+    min-width: 220px;
     width: 30% !important;
     padding: 15px !important;
+    &::placeholder {
+        font-weight: normal;
+        color: #a1a1a1;
+        opacity: 1;
+    }
 }
+
+.footer-link {
+    text-decoration: none;
+    color: #696969;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1.5em;
+    &:hover{
+        text-decoration: none;
+        color: #86868b;
+    };
+}
+
+// @media screen and (max-width: 780) {
+//     body{
+//         .site-container {
+//             .footer {
+//                 color: red;
+//                 .footer-cta {
+//                     .footer-form-input {
+//                         min-width: 220px;
+//                         width: 30% !important;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
