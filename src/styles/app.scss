@@ -30,6 +30,10 @@ html, body {
         .link-items {
             color: #696969;
             cursor: pointer;
+            float: right;
+            span {
+                padding: 0 20px;
+            }
             &:hover{
                 color: #86868b;
             };
