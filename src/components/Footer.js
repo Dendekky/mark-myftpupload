@@ -28,7 +28,7 @@ const Footer = () => (
           </InputGroup>
         </div>
       </div>
-      <div className='footer-links d-flex flex-column flex-lg-row justify-content-around px-1 px-md-4 py-3'>
+      <div className='footer-links d-flex flex-column flex-lg-row justify-content-around px-1 px-md-4 py-5'>
         <FooterLink>MY ACCOUNT</FooterLink>
         <FooterLink>LMH FRONT ROW</FooterLink>
         <FooterLink>COLLABORATIONS</FooterLink>
