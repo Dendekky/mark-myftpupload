@@ -7,6 +7,55 @@ html, body {
 }
 
 .site-container {
+    .product {
+        // padding: 0 40px;
+        .product-images {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .product-details {
+            // position: sticky;
+            // top: 0;
+            color: #696969;
+            .product-title {
+                font-size: 23.101px;
+                font-weight: 900;
+                line-height: 1.13em;
+                margin-bottom: 30px;
+            }
+            .product-size {
+                color: black;
+            }
+            .product-quantity {
+                span {
+                    cursor: pointer;
+                    padding: 0 10px;
+                    font-size: 26px;
+                }
+                p {
+                    font-size: 26px;
+                }
+
+            }
+            .product-description {
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+            .product-accordions {
+                .acc-toggler {
+                    background-color: #fff !important;
+                    font-size: 14px;
+                    cursor: pointer;
+                    font-weight: 900;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
     .footer {
         background: #f4f4f4;
         padding: 24px;
@@ -39,6 +88,32 @@ html, body {
             };
         }
     }
+}
+
+.product-button {
+    background-color: #fff;
+    color: #686869;
+    margin: 10px 0;
+    font-weight: bold;
+    min-width: 220px;
+    width: 100% !important;
+    padding: 15px !important;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: 1px solid #686869;
+    border-radius: 0 !important;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: none !important;
+    &:hover {
+        background-color: #686869;
+        color: #fff;
+    }
+}
+
+.disabled-product-button {
+    cursor: no-drop;
 }
 
 .footer-form-button {
