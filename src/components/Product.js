@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Accordion, Button, Card, Col, Row } from 'react-bootstrap';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 import Img01 from '../assets/images/img01.jpg';
 import Img02 from '../assets/images/img02.jpg';
 import Img03 from '../assets/images/img03.jpg';
@@ -13,6 +15,16 @@ const ProductButton = ({ disabled, children }) => (
   >
     {children}
   </button>
+);
+
+const ProductImageCarousel = ({ productImages = defaultProductImages }) => (
+  <Carousel>
+    {productImages.map((image, idx) => (
+      <div key={idx}>
+        <img src={image} alt='product-images' />
+      </div>
+    ))}
+  </Carousel>
 );
 
 const Product = ({
@@ -33,9 +45,19 @@ const Product = ({
   return (
     <Row className='product px-5'>
       <Col sm='12' md='6' lg='6' className='product-images'>
-        {productImages.map((img, idx) => (
-          <img key={idx} src={img} alt='product-images' className='py-3 px-1' />
-        ))}
+        <div className='d-sm-none d-block d-md-block'>
+          {productImages.map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt='product-images'
+              className='py-3 px-1'
+            />
+          ))}
+        </div>
+        <div className='d-block d-md-none'>
+          <ProductImageCarousel />
+        </div>
       </Col>
       <Col sm='12' md='6' lg='6' className='product-details'>
         <div className='product-title'>{title}</div>
@@ -75,7 +97,7 @@ const Product = ({
               eventKey='0'
               className='acc-toggler'
             >
-              > DETAILS
+              &gt; DETAILS
             </Accordion.Toggle>
             <Accordion.Collapse eventKey='0'>
               <div dangerouslySetInnerHTML={{ __html: details }} />
@@ -85,7 +107,7 @@ const Product = ({
               eventKey='1'
               className='acc-toggler'
             >
-              > MATERIAL & CARE
+              &gt; MATERIAL & CARE
             </Accordion.Toggle>
             <Accordion.Collapse eventKey='1'>
               <div dangerouslySetInnerHTML={{ __html: material }} />
@@ -95,7 +117,7 @@ const Product = ({
               eventKey='2'
               className='acc-toggler'
             >
-              > SHIPMENT & RETURNS
+              &gt; SHIPMENT & RETURNS
             </Accordion.Toggle>
             <Accordion.Collapse eventKey='2'>
               <div dangerouslySetInnerHTML={{ __html: shipment }} />
@@ -105,7 +127,7 @@ const Product = ({
               eventKey='3'
               className='acc-toggler'
             >
-              > PRE ORDERS
+              &gt; PRE ORDERS
             </Accordion.Toggle>
             <Accordion.Collapse eventKey='3'>
               <div dangerouslySetInnerHTML={{ __html: preOrder }} />
@@ -133,7 +155,7 @@ const defaultMaterial = `
   <p>
     HAND WASH IN LUKEWARM WATER USING A MILD CASHMERE SOAP. .
   </p>`;
-  const defaultShipment = `
+const defaultShipment = `
   <p>Our garments are always shipped free of charge.</p>
   <p>
   We guarantee 30 days to return or to exchange an item free of

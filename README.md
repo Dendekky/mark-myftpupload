@@ -4,7 +4,7 @@
 In the project directory, you can run:
 ### `npm install` to install all dependencies
 
-The dependencies include react, react-bootstrap, bootstrap, node-sass, and react-router-dom.
+The dependencies include react, react-bootstrap, bootstrap, node-sass, react-responsive-carousel, and react-router-dom.
 
 ### `npm start`
 
