@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Accordion, Button, Card, Col, Row } from 'react-bootstrap';
+import { Accordion, Card, Col, FormControl, Row } from 'react-bootstrap';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Img01 from '../assets/images/img01.jpg';
@@ -27,6 +27,21 @@ const ProductImageCarousel = ({ productImages = defaultProductImages }) => (
   </Carousel>
 );
 
+const CustomAccordion = ({ eventKey, title, content }) => (
+  <>
+    <Accordion.Toggle
+      as={Card.Header}
+      eventKey={eventKey}
+      className='acc-toggler'
+    >
+      &gt; {title}
+    </Accordion.Toggle>
+    <Accordion.Collapse eventKey={eventKey}>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </Accordion.Collapse>
+  </>
+)
+
 const Product = ({
   title = defaultTitle,
   price = defaultPrice,
@@ -45,7 +60,7 @@ const Product = ({
   return (
     <Row className='product px-5'>
       <Col sm='12' md='6' lg='6' className='product-images'>
-        <div className='d-sm-none d-block d-md-block'>
+        <div className='d-none d-md-block'>
           {productImages.map((img, idx) => (
             <img
               key={idx}
@@ -60,17 +75,19 @@ const Product = ({
         </div>
       </Col>
       <Col sm='12' md='6' lg='6' className='product-details'>
-        <div className='product-title'>{title}</div>
+        <div className='product-title mt-5'>{title}</div>
         <p>{price}</p>
         <p className='font-weight-bold'>SIZE CHART</p>
-        <div className='product-size'>
-          <span className='pr-4'>SIZE</span>
-          <select>
+        <div className='product-size d-flex'>
+          <span className='pr-4 pt-2'>SIZE</span>
+          <div>
+          <FormControl as='select'>
             <option>Choose an option</option>
             {sizes.map((size) => (
               <option key={size}>{size}</option>
             ))}
-          </select>
+          </FormControl>
+          </div>
         </div>
         <div className='product-quantity d-flex flex-row py-2'>
           <span className='pr-3' onClick={decreaseProductSize}>
@@ -92,46 +109,10 @@ const Product = ({
         </div>
         <div className='product-accordions'>
           <Accordion className='d-flex flex-column'>
-            <Accordion.Toggle
-              as={Card.Header}
-              eventKey='0'
-              className='acc-toggler'
-            >
-              &gt; DETAILS
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey='0'>
-              <div dangerouslySetInnerHTML={{ __html: details }} />
-            </Accordion.Collapse>
-            <Accordion.Toggle
-              as={Card.Header}
-              eventKey='1'
-              className='acc-toggler'
-            >
-              &gt; MATERIAL & CARE
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey='1'>
-              <div dangerouslySetInnerHTML={{ __html: material }} />
-            </Accordion.Collapse>
-            <Accordion.Toggle
-              as={Card.Header}
-              eventKey='2'
-              className='acc-toggler'
-            >
-              &gt; SHIPMENT & RETURNS
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey='2'>
-              <div dangerouslySetInnerHTML={{ __html: shipment }} />
-            </Accordion.Collapse>
-            <Accordion.Toggle
-              as={Card.Header}
-              eventKey='3'
-              className='acc-toggler'
-            >
-              &gt; PRE ORDERS
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey='3'>
-              <div dangerouslySetInnerHTML={{ __html: preOrder }} />
-            </Accordion.Collapse>
+            <CustomAccordion title='DETAILS' eventKey='0' content={details} />
+            <CustomAccordion title='MATERIAL & CARE' eventKey='1' content={material} />
+            <CustomAccordion title='SHIPMENT & RETURNS' eventKey='2' content={shipment} />
+            <CustomAccordion title='PRE ORDERS' eventKey='3' content={preOrder} />
           </Accordion>
         </div>
       </Col>
