@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Accordion, Card, Col, FormControl, Row } from 'react-bootstrap';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import Img01 from '../assets/images/img01.jpg';
-import Img02 from '../assets/images/img02.jpg';
-import Img03 from '../assets/images/img03.jpg';
-import Img04 from '../assets/images/img04.jpg';
-import Img05 from '../assets/images/img05.jpg';
+import React, { useState } from 'react'
+import { Accordion, Card, Col, FormControl, Row } from 'react-bootstrap'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Carousel } from 'react-responsive-carousel'
+import Img01 from '../assets/images/img01.jpg'
+import Img02 from '../assets/images/img02.jpg'
+import Img03 from '../assets/images/img03.jpg'
+import Img04 from '../assets/images/img04.jpg'
+import Img05 from '../assets/images/img05.jpg'
 
 const ProductButton = ({ disabled, children }) => (
   <button
@@ -15,7 +15,7 @@ const ProductButton = ({ disabled, children }) => (
   >
     {children}
   </button>
-);
+)
 
 const ProductImageCarousel = ({ productImages = defaultProductImages }) => (
   <Carousel>
@@ -25,7 +25,7 @@ const ProductImageCarousel = ({ productImages = defaultProductImages }) => (
       </div>
     ))}
   </Carousel>
-);
+)
 
 const CustomAccordion = ({ eventKey, title, content }) => (
   <>
@@ -51,11 +51,11 @@ const Product = ({
   material = defaultMaterial,
   shipment = defaultShipment,
   preOrder = defaultPreOrder,
-  productImages = defaultProductImages,
+  productImages = defaultProductImages
 }) => {
-  const [productSize, setProductSize] = useState(1);
-  const increaseProductSize = () => setProductSize(productSize + 1);
-  const decreaseProductSize = () => setProductSize(productSize - 1);
+  const [productSize, setProductSize] = useState(1)
+  const increaseProductSize = () => setProductSize(productSize + 1)
+  const decreaseProductSize = () => setProductSize(productSize - 1)
 
   return (
     <Row className='product px-5'>
@@ -77,16 +77,16 @@ const Product = ({
       <Col sm='12' md='6' lg='6' className='product-details'>
         <div className='product-title mt-5'>{title}</div>
         <p>{price}</p>
-        <p className='font-weight-bold'>SIZE CHART</p>
+        <p className='font-weight-bold product-size__chart'>SIZE CHART</p>
         <div className='product-size d-flex'>
           <span className='pr-4 pt-2'>SIZE</span>
           <div>
-          <FormControl as='select'>
-            <option>Choose an option</option>
-            {sizes.map((size) => (
-              <option key={size}>{size}</option>
-            ))}
-          </FormControl>
+            <FormControl as='select'>
+              <option>Choose an option</option>
+              {sizes.map((size) => (
+                <option key={size}>{size}</option>
+              ))}
+            </FormControl>
           </div>
         </div>
         <div className='product-quantity d-flex flex-row py-2'>
@@ -117,16 +117,16 @@ const Product = ({
         </div>
       </Col>
     </Row>
-  );
+  )
 };
 
-export default Product;
+export default Product
 
-const defaultTitle = '— THE FINE KNIT CASHMERE BABY BLANKET METROPOLITAN GREY';
-const defaultPrice = '€475.00';
-const defaultSizes = ['ONE SIZE'];
-const defaultDescription = `GIVE YOUR NEWBORN THE VERY BEST FROM THE VERY BEGINNING WITH OUR CASHMERE FINE KNIT BABY BLANKET. BEAUTIFULLY LIGHTWEIGHT AND SOFT, OUR BLANKET IS THE PERFECT ACCOMPANIMENT FOR ANY NEW PARENT. ULTRA-SOFT AGAINST YOUR BABY’S SKIN, CASHMERE TRAPS HEAT WITHIN THE SMALL AIR POCKETS OF THE KNIT, HELPING TO REGULATE THE TEMPERATURE AROUND YOUR BABY AND PROTECTING THEM WITH A COZY YET BREATHABLE ENVIRONMENT. USE THIS BLANKET IN YOUR PRAM OR STROLLER, OR AS A SNUGGLY WRAP WHILE BEING HELD – YOU’LL FIND IT BECOMES A MUST-HAVE ESSENTIAL TO KEEP TO HAND AT ALL TIMES.`;
-const defaultDetails = `<p>SIZE: 100X80 CM. </p> <p>EXTRA FINE KNIT. </p> <p>AVAILABLE IN PURE WHITE OR METROPOLITAN GREY. </p> <p>CONTRASTING BORDER</p>`;
+const defaultTitle = '— THE FINE KNIT CASHMERE BABY BLANKET METROPOLITAN GREY'
+const defaultPrice = '€475.00'
+const defaultSizes = ['ONE SIZE']
+const defaultDescription = 'GIVE YOUR NEWBORN THE VERY BEST FROM THE VERY BEGINNING WITH OUR CASHMERE FINE KNIT BABY BLANKET. BEAUTIFULLY LIGHTWEIGHT AND SOFT, OUR BLANKET IS THE PERFECT ACCOMPANIMENT FOR ANY NEW PARENT. ULTRA-SOFT AGAINST YOUR BABY’S SKIN, CASHMERE TRAPS HEAT WITHIN THE SMALL AIR POCKETS OF THE KNIT, HELPING TO REGULATE THE TEMPERATURE AROUND YOUR BABY AND PROTECTING THEM WITH A COZY YET BREATHABLE ENVIRONMENT. USE THIS BLANKET IN YOUR PRAM OR STROLLER, OR AS A SNUGGLY WRAP WHILE BEING HELD – YOU’LL FIND IT BECOMES A MUST-HAVE ESSENTIAL TO KEEP TO HAND AT ALL TIMES.';
+const defaultDetails = '<p>SIZE: 100X80 CM. </p> <p>EXTRA FINE KNIT. </p> <p>AVAILABLE IN PURE WHITE OR METROPOLITAN GREY. </p> <p>CONTRASTING BORDER</p>';
 const defaultMaterial = `
   <p> MADE FROM THE PUREST AND FINEST CASHMERE.</p>
   <p>
@@ -135,13 +135,13 @@ const defaultMaterial = `
   </p>
   <p>
     HAND WASH IN LUKEWARM WATER USING A MILD CASHMERE SOAP. .
-  </p>`;
+  </p>`
 const defaultShipment = `
   <p>Our garments are always shipped free of charge.</p>
   <p>
   We guarantee 30 days to return or to exchange an item free of
   charge.
-  </p>`;
+  </p>`
 const defaultPreOrder = `
   <p>
     LMH products are made one by one by our craftsmen in Italy and
@@ -156,6 +156,6 @@ const defaultPreOrder = `
     total amount of your pre-order but will be charged just when
     your LMH Essential will be ready to be shipped.
   </p>
-  <p> For further information click here. </p>`;
+  <p> For further information click here. </p>`
 
-const defaultProductImages = [Img01, Img02, Img03, Img04, Img05];
+const defaultProductImages = [Img01, Img02, Img03, Img04, Img05]

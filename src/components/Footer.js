@@ -1,17 +1,27 @@
-import React from 'react';
-import { Col, InputGroup, Row } from 'react-bootstrap';
+import React from 'react'
+import { Col, InputGroup, Row } from 'react-bootstrap'
 
 const FooterButton = ({ children }) => (
   <button className='footer-form-button'>{children}</button>
-);
+)
 const FooterLink = ({ children }) => (
   <a className='footer-link' href='/#'>
     {children}
   </a>
-);
+)
+
+const GalleryLink = ({ children }) => (
+  <a className='gallery-link py-2' href='/#'>
+    {children}
+  </a>
+)
 
 const Footer = () => (
   <>
+    <div className='d-flex flex-column align-items-center align-content-center py-5 social-media-links'>
+      <GalleryLink>— FACEBOOK</GalleryLink>
+      <GalleryLink>— INSTAGRAM</GalleryLink>
+    </div>
     <div className='footer'>
       <div className='footer-cta'>
         <span>Subscribe now for trend updates, style tips and more</span>
@@ -50,6 +60,6 @@ const Footer = () => (
       </Row>
     </div>
   </>
-);
+)
 
-export default Footer;
+export default Footer
