@@ -41,10 +41,10 @@ const Footer = () => (
         <Col>© Linda Meyer-Hentschel </Col>
         <Col>
           <div className='link-items d-flex flex-column flex-md-row justify-content-around'>
-            <span>Legal</span>
-            <span>Cookie Policy</span>
-            <span>Privacy Policy</span>
-            <span>Imprint</span>
+            <a href='/#' className='footer-pad-link'>Legal</a>
+            <a href='/#' className='footer-pad-link'>Cookie Policy</a>
+            <a href='/#' className='footer-pad-link'>Privacy Policy</a>
+            <a href='/#' className='footer-pad-link'>Imprint</a>
           </div>
         </Col>
       </Row>
