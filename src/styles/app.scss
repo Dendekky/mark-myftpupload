@@ -14,7 +14,7 @@ img {
 }
 
 .site-container {
-  overflow: hidden;
+  overflow-x: hidden;
   .navbar {
     margin: 0 5px;
     padding-top: 15px;
@@ -163,6 +163,7 @@ img {
   }
   .product {
     margin-top: 120px;
+
     .product-images {
       img {
         width: 100%;
@@ -176,8 +177,8 @@ img {
       }
     }
     .product-details {
-      position: fixed;
-      right: 0;
+      position: sticky;
+      top: 0;
       z-index: 0;
       color: #696969;
 
@@ -340,28 +341,39 @@ img {
     width: 100%;
 
     img {
+      animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
       width: 100%;
     }
   }
 
-  .boutique-women--product__details{
+  .boutique-women--product__details {
     display: grid;
     grid-template-columns: 90% 10%;
 
-    svg{
-      align-self:center;
+    svg {
+      align-self: center;
       justify-self: flex-end;
     }
   }
 
   .boutique-women--product__description {
     margin: 0;
+    font-size: 12px;
     padding-top: 15px;
   }
+
   .boutique-women--product__price {
-    font-size: 18px;
-    color: #696969CC;
+    animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    font-size: 14px;
+    color: #696969cc;
     margin: 0;
+  }
+
+  .boutique-women--product__cta {
+    font-size: 12px;
+    margin: 0;
+    animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    // animation: fade-out-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 }
 
@@ -434,6 +446,12 @@ img {
         font-size: 20px;
       }
     }
+    .boutique-women--product__price {
+      font-size: 18px;
+    }
+    .boutique-women--product__description, .boutique-women--product__cta {
+      font-size: 16px;
+    }
   }
 }
 
@@ -476,5 +494,47 @@ img {
     .navbar-nav.icons.mobile .nav-link svg {
       width: 18px;
     }
+  }
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
