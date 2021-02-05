@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.css'
 
 import './styles/app.scss'
 import Home from './pages/Home'

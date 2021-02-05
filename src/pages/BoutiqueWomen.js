@@ -16,6 +16,7 @@ const BoutiqueWomenProduct = ({ id, data }) => {
 
   return (
     <div
+      className='boutique-women--product__div'
       onMouseEnter={() => setCurrentItem(id)}
       onMouseLeave={() => setCurrentItem(null)}
     >

@@ -336,7 +336,9 @@ img {
   .bottom {
     grid-area: 2 / 1 / 3 / 3;
   }
-
+  .boutique-women--product__div{
+    cursor: pointer;
+  }
   .boutique-women--product__images {
     width: 100%;
 
